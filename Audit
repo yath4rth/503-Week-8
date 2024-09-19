@@ -1,0 +1,32 @@
+class Audit extends BankAccount{
+	private int depositCount;
+	private int withdrawCount;
+	public Audit()
+	{
+		this.depositCount = 0;
+		this.withdrawCount = 0;
+	}
+	public void deposit(int amount)
+	{
+		super.deposit(amount);
+		depositCount++;
+	}
+	public void withdraw(int amount)
+	{
+		super.withdraw(amount);
+		withdrawCount++;
+	}
+public String toString()
+{
+	return "Deposit count: "+depositCount+", Withdraw count: "+withdrawCount;
+}
+public static void main(String[] args)
+{
+	BankAccount bank = new BankAccount();
+	bank.deposit(100);
+	System.out.println(bank.balance);
+	BankAccount bank1 = new BankAccount();
+	bank1.withdraw(100);
+	System.out.println(bank1.balance);
+}
+}
